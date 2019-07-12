@@ -1,6 +1,10 @@
+var cardDeck = require('./card-deck');
+
 console.log(`Welcome! Let's play One-Handed Solitaire!`);
 
 // TODO: Create a new, shuffled deck of cards.
+const playDeck = cardDeck.getNewDeck();
+console.log(playDeck);
 
 // TODO: Draw the first 5 cards as the initial hand.
 
