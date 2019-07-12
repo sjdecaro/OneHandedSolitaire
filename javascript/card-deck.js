@@ -11,7 +11,7 @@ exports.getNewDeck = function () {
 
     // Shuffle the deck
     for (idx = deck.length - 1; idx > 0; idx--) {
-        const randomIndex = Math.floor(Math.random() * (idx));
+        const randomIndex = Math.floor(Math.random() * (deckSize));
         [deck[idx], deck[randomIndex]] = [deck[randomIndex], deck[idx]];
     }
     return deck;
