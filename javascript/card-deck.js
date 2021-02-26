@@ -1,5 +1,3 @@
-var card = require("./card");
-
 exports.getNewDeck = function () {
     // Initialize the deck of cards in standard order
     const deckSize = 52;
@@ -16,6 +14,7 @@ exports.getNewDeck = function () {
         const randomIndex = Math.floor(Math.random() * (deckSize));
         [deck[idx], deck[randomIndex]] = [deck[randomIndex], deck[idx]];
     }
+
     return deck;
 }
 

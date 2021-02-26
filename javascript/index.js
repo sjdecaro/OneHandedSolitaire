@@ -2,11 +2,13 @@ var cardDeck = require('./card-deck');
 
 console.log(`Welcome! Let's play One-Handed Solitaire!`);
 
-// TODO: Create a new, shuffled deck of cards.
+// Create a new, shuffled deck of cards.
 const playDeck = cardDeck.getNewDeck();
-console.log(playDeck);
 
 // TODO: Draw the first 5 cards as the initial hand.
+let hand = playDeck.splice(0, 5);
+console.log(hand);
+console.log(playDeck.length);
 
 // TODO: Compare the last card drawn to the card 4 positions ahead of it.
 // If the same value, discard all 5 cards.
