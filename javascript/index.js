@@ -5,18 +5,30 @@ console.log(`Welcome! Let's play One-Handed Solitaire!`);
 // Create a new, shuffled deck of cards.
 const playDeck = cardDeck.getNewDeck();
 
-// TODO: Draw the first 5 cards as the initial hand.
+// Draw the first 5 cards as the initial hand.
 let hand = playDeck.splice(0, 5);
-console.log(hand);
-console.log(playDeck.length);
 
-// TODO: Compare the last card drawn to the card 4 positions ahead of it.
-// If the same value, discard all 5 cards.
-// If the same suit, discard middle 3 cards.
-//   Once discarded, run these two comparisons again.
-// If hand size < 5, draw cards until hand size is 5.
-// If different, draw 1 card.
+// Draw each remaining card from the deck.
 
-// TODO: Repeat steps until all cards have been drawn.
+while (playDeck.length > 0) {
+    next_card = playDeck.splice(0, 1);
+    hand = hand.concat(next_card);
 
-// TODO: Return a message letting the player know if they have won or lost.
+    console.log(hand);
+
+    // TODO: Compare the last card drawn to the card 4 positions ahead of it.
+    // If the same value, discard all 5 cards.
+    // If the same suit, discard middle 3 cards.
+    //   Once discarded, run these two comparisons again.
+    // If hand size < 5, draw cards until hand size is 5.
+    // If different, draw 1 card.
+
+    // TODO: Repeat steps until all cards have been drawn.
+
+}
+
+if (hand.length > 0) {
+    console.log("Aww, bummer, there are " + hand.length + " cards remaining. Try again!")
+} else {
+    console.log("No cards remaining! YOU WON!!!")
+}
