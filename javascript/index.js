@@ -1,4 +1,5 @@
 var cardDeck = require('./card-deck');
+const readline = require('readline-sync');
 
 console.log(`Welcome! Let's play One-Handed Solitaire!`);
 
@@ -11,10 +12,14 @@ let hand = playDeck.splice(0, 5);
 // Draw each remaining card from the deck.
 
 while (playDeck.length > 0) {
+    readline.question(`Hit Enter to draw a card.`, foo => {
+        readline.close();
+    });
+
     next_card = playDeck.splice(0, 1);
     hand = hand.concat(next_card);
 
-    console.log(hand);
+    console.log("You drew the " + next_card[0].value + " of " + next_card[0].suit + ".");
 
     // TODO: Compare the last card drawn to the card 4 positions ahead of it.
     // If the same value, discard all 5 cards.

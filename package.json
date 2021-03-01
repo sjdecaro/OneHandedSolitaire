@@ -1,0 +1,23 @@
+{
+  "name": "OneHandedSolitaire-1",
+  "version": "1.0.0",
+  "description": "Console application that plays through a game of One-Handed Solitaire (https://en.wikipedia.org/wiki/One-Handed_Solitaire). Uses the 5-card variant, which is what I grew up playing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjdecaro/OneHandedSolitaire.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjdecaro/OneHandedSolitaire/issues"
+  },
+  "homepage": "https://github.com/sjdecaro/OneHandedSolitaire#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
