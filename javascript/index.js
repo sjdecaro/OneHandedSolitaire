@@ -35,15 +35,24 @@ while (playDeck.length > 0) {
     console.log("Checking the " + comparison_card.value + " of " + comparison_card.suit + "...");
 
     if (next_card.suit == comparison_card.suit) {
-        console.log("Hey, the suits match! Discard the middle 3 cards.")
+        console.log("Hey, the suits match! Discard the middle 3 cards.");
+
+        hand.splice(hand.length - 4, hand.length - 1);
     } else if (next_card.value == comparison_card.value) {
         console.log("WOW, the values match!! Discard all 5 cards.")
     } else {
         console.log("Darn, no match. Keep going!");
     }
 
-    // TODO: Repeat steps until all cards have been drawn.
+    if (hand.length < 5) {
+        while (hand.length < 5) {
+            next_card = playDeck.splice(0, 1)[0];
+            hand.push(next_card);
+        }
 
+        console.log("Resulting hand:");
+        hand.forEach(x => console.log(x.value + " of " + x.suit));
+    }
 }
 
 if (hand.length > 0) {
