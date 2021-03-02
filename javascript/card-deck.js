@@ -42,16 +42,16 @@ getValue = function(idx) {
     value = "";
 
     if (position == 0) {
-        value = "A";
+        value = "Ace";
     }
     else if (position == 10) {
-        value = "J";
+        value = "Jack";
     }
     else if (position == 11) {
-        value = "Q";
+        value = "Queen";
     }
     else if (position == 12) {
-        value = "K";
+        value = "King";
     }
     else {
         value = position.toString();

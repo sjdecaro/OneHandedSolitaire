@@ -19,8 +19,8 @@ while (playDeck.length > 0) {
     next_card = playDeck.splice(0, 1)[0];
     hand.push(next_card);
 
-    console.log(next_card);
-    console.log(hand);
+    console.log("Your hand:");
+    hand.forEach(x => console.log(x.value + " of " + x.suit));
 
     console.log("You drew the " + next_card.value + " of " + next_card.suit + ".");
 
