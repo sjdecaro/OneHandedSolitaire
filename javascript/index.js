@@ -39,7 +39,9 @@ while (playDeck.length > 0) {
 
         hand.splice(hand.length - 4, hand.length - 1);
     } else if (next_card.value == comparison_card.value) {
-        console.log("WOW, the values match!! Discard all 5 cards.")
+        console.log("WOW, the values match!! Discard all 5 cards.");
+
+        hand.splice(hand.length - 5, hand.length);
     } else {
         console.log("Darn, no match. Keep going!");
     }
