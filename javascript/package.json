@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.4.0"
+    "jasmine": "^3.7.0"
   }
 }
