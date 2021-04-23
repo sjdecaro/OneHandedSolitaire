@@ -21,8 +21,15 @@ describe('Card deck', () => {
 
     it('should have all elements in a random order', () => {
         const actual = cardDeck.getNewDeck();
-        const sortedCards = actual.slice(0);
-        sortedCards.sort();
-        expect(sortedCards).not.toEqual(actual);
+        const deckSize = 52;
+
+        let sortedDeck = new Array(deckSize);
+
+        for (i = 0; i < deckSize; i++) {
+            let card = { suit: getSuit(i), value: getValue(i) };
+            sortedDeck[i] = card;
+        }
+
+        expect(sortedDeck).not.toEqual(actual);
     });
 });
