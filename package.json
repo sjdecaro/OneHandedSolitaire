@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sjdecaro/OneHandedSolitaire#readme",
   "dependencies": {
+    "jasmine": "^3.7.0",
     "readline-sync": "^1.4.10"
   }
 }
