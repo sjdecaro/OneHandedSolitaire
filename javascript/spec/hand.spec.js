@@ -6,7 +6,7 @@ describe('Hand', () => {
   });
 
   it('should draw a starting hand with the correct number of cards', () => {
-    const handSize = 5;
+    const handSize = 4;
     const startingHand = hand.getNewHand(handSize);
     expect(startingHand.length).toBe(handSize);
   });
