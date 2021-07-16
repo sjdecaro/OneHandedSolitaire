@@ -1,9 +1,13 @@
-hand = []
-
-exports.getNewHand = function (handSize, deck) {
-  if(deck) {
-    hand = deck.splice(0, handSize);
+module.exports = class Hand {
+  constructor(handSize, deck) {
+    this.handSize = handSize;
+    this.deck = deck;
+    this.hand = [];
   }
 
-  return hand;
+  getNewHand() {
+    this.hand = this.deck.splice(0, this.handSize);
+
+    return this.hand;
+  }
 }
