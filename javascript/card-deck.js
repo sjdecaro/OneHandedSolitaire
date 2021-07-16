@@ -1,61 +1,23 @@
-exports.getNewDeck = function () {
-  // Initialize the deck of cards in standard order
-  const deckSize = 52;
+var Card = require('./card');
 
-  let deck = new Array(deckSize);
+module.exports = class Deck {
+  init() {
+    // Initialize the deck of cards in standard order
+    const deckSize = 52;
 
-  for (i = 0; i < deckSize; i++) {
-    let card = { suit: getSuit(i), value: getValue(i) };
-    deck[i] = card;
-  }
+    let deck = new Array(deckSize);
 
-  // Shuffle the deck
-  for (idx = deck.length - 1; idx > 0; idx--) {
-    const randomIndex = Math.floor(Math.random() * (deckSize));
-    [deck[idx], deck[randomIndex]] = [deck[randomIndex], deck[idx]];
-  }
+    for (let i = 0; i < deckSize; i++) {
+      let card = new Card(i);
+      deck[i] = card;
+    }
 
-  return deck;
-}
+    // Shuffle the deck
+    for (let idx = deck.length - 1; idx > 0; idx--) {
+      const randomIndex = Math.floor(Math.random() * (deckSize));
+      [deck[idx], deck[randomIndex]] = [deck[randomIndex], deck[idx]];
+    }
 
-getSuit = function (idx) {
-  suit = "";
-
-  if (idx < 13) {
-    suit = "Clubs";
-  } 
-  else if (idx < 26) {
-    suit = "Diamonds";
+    return deck;
   }
-  else if (idx < 39) {
-    suit = "Hearts";
-  }
-  else {
-    suit = "Spades";
-  }
-
-  return suit;
-}
-
-getValue = function(idx) {
-  position = idx % 13;
-  value = "";
-
-  if (position == 0) {
-    value = "Ace";
-  }
-  else if (position == 10) {
-    value = "Jack";
-  }
-  else if (position == 11) {
-    value = "Queen";
-  }
-  else if (position == 12) {
-    value = "King";
-  }
-  else {
-    value = position.toString();
-  }
-
-  return value;
 }
