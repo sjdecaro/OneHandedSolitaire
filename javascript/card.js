@@ -1,25 +1,40 @@
 module.exports = class Card {
   constructor(index) {
     this.suit = this.getSuit(index);
+    this.value = this.getValue(index);
   }
 
   getSuit(index) {
-    let suitIndex = index / 13;
+    let suitIndex = Math.floor(index / 13);
 
-    if(Math.floor(suitIndex) == 0) {
-      return "Clubs";
+    switch(suitIndex) {
+      case 0:
+        return "Clubs";
+      case 1:
+        return "Diamonds";
+      case 2:
+        return "Hearts";
+      case 3:
+        return "Spades";
+      default:
+        return "";
     }
+  }
 
-    if(Math.floor(suitIndex) == 1) {
-      return "Diamonds";
-    }
+  getValue(index) {
+    let valueIndex = index % 13;
 
-    if(Math.floor(suitIndex) == 2) {
-      return "Hearts";
-    }
-
-    if(Math.floor(suitIndex) == 3) {
-      return "Spades";
+    switch(valueIndex) {
+      case 0:
+        return "Ace";
+      case 10:
+        return "Jack";
+      case 11:
+        return "Queen";
+      case 12:
+        return "King";
+      default:
+        return `${valueIndex + 1}`;
     }
   }
 }
