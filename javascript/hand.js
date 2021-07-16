@@ -1,8 +1,8 @@
 hand = []
 
-exports.getNewHand = function (handSize) {
-  for (i = 0; i < handSize; i++) {
-    hand[i] = i;
+exports.getNewHand = function (handSize, deck) {
+  if(deck) {
+    hand = deck.splice(0, handSize);
   }
 
   return hand;
