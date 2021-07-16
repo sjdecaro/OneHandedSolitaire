@@ -1,4 +1,4 @@
-var cardDeck = require('./../card-deck');
+var Deck = require('./../card-deck');
 var Hand = require('./../hand');
 
 describe('Hand', () => {
@@ -9,7 +9,8 @@ describe('Hand', () => {
 
   it('should draw a starting hand with the correct number of cards', () => {
     const handSize = 4;
-    const deck = cardDeck.getNewDeck();
+    const newDeck = new Deck();
+    const deck = newDeck.init();
     const hand = new Hand(handSize, deck);
     const startingHand = hand.getNewHand();
     expect(startingHand.length).toBe(handSize);
@@ -17,7 +18,8 @@ describe('Hand', () => {
 
   it('should draw a starting hand from a deck', () => {
     const handSize = 5;
-    const deck = cardDeck.getNewDeck();
+    const newDeck = new Deck();
+    const deck = newDeck.init();
     const firstCards = deck.slice(0, handSize);
 
     const hand = new Hand(handSize, deck);
