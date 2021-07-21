@@ -1,7 +1,11 @@
 var Card = require('./card');
 
 module.exports = class Deck {
-  init() {
+  constructor() {
+    this.cards = this.shuffleCards();
+  }
+
+  shuffleCards() {
     // Initialize the deck of cards in standard order
     const deckSize = 52;
 
