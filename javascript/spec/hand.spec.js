@@ -85,5 +85,19 @@ describe('Hand', () => {
       hand.compareAndDiscard();
       expect(hand.currentCards.length).toEqual(1);
     });
+
+    it('should keep all cards if neither suit nor values match', () => {
+      const handSize = 5;
+      const deck = new Deck();
+
+      const hand = new Hand(handSize, deck.cards);
+      hand.draw();
+      hand.currentCards[1].suit = 'Test0';
+      hand.currentCards[1].value = '0';
+      hand.currentCards[handSize].suit = 'Test1';
+      hand.currentCards[handSize].value = '1';
+      hand.compareAndDiscard();
+      expect(hand.currentCards.length).toEqual(6);
+    });
   });
 });
