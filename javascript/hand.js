@@ -20,4 +20,15 @@ module.exports = class Hand {
       this.currentCards.push(this.deck.splice(0, 1)[0]);
     }
   }
+
+  compareAndDiscard() {
+    const currentHandSize = this.currentCards.length;
+    let cardsInPlay = this.currentCards.splice(currentHandSize - this.size, this.size);
+
+    if(cardsInPlay[0].suit === cardsInPlay[this.size - 1].suit) {
+      cardsInPlay.splice(1, 3);
+    }
+
+    this.currentCards = this.currentCards.concat(cardsInPlay);
+  }
 }
