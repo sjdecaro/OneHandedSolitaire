@@ -24,9 +24,15 @@ module.exports = class Hand {
   compareAndDiscard() {
     const currentHandSize = this.currentCards.length;
     let cardsInPlay = this.currentCards.splice(currentHandSize - this.size, this.size);
+    let card1 = cardsInPlay[0];
+    let card2 = cardsInPlay[this.size - 1];
 
-    if(cardsInPlay[0].suit === cardsInPlay[this.size - 1].suit) {
+    if(card1.suit === card2.suit) {
       cardsInPlay.splice(1, 3);
+    }
+
+    if(card1.value === card2.value) {
+      cardsInPlay = [];
     }
 
     this.currentCards = this.currentCards.concat(cardsInPlay);

@@ -57,15 +57,33 @@ describe('Hand', () => {
     expect(deck.cards.length).toBe(52 - handSize - 2);
   });
 
-  it('should discard middle cards if suits match', () => {
-    const handSize = 5;
-    const deck = new Deck();
+  describe('when comparing cards in play', () => {
+    it('should discard middle cards if suits match', () => {
+      const handSize = 5;
+      const deck = new Deck();
 
-    const hand = new Hand(handSize, deck.cards);
-    hand.draw();
-    hand.currentCards[1].suit = 'Test';
-    hand.currentCards[handSize].suit = 'Test';
-    hand.compareAndDiscard();
-    expect(hand.currentCards.length).toEqual(3);
+      const hand = new Hand(handSize, deck.cards);
+      hand.draw();
+      hand.currentCards[1].suit = 'Test';
+      hand.currentCards[1].value = '0';
+      hand.currentCards[handSize].suit = 'Test';
+      hand.currentCards[handSize].value = '1';
+      hand.compareAndDiscard();
+      expect(hand.currentCards.length).toEqual(3);
+    });
+
+    it('should discard all cards if values match', () => {
+      const handSize = 5;
+      const deck = new Deck();
+
+      const hand = new Hand(handSize, deck.cards);
+      hand.draw();
+      hand.currentCards[1].suit = '0';
+      hand.currentCards[1].value = 'Test';
+      hand.currentCards[handSize].suit = '1';
+      hand.currentCards[handSize].value = 'Test';
+      hand.compareAndDiscard();
+      expect(hand.currentCards.length).toEqual(1);
+    });
   });
 });
