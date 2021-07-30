@@ -11,8 +11,7 @@ describe('Hand', () => {
     const handSize = 4;
     const deck = new Deck();
     const hand = new Hand(handSize, deck.cards);
-    const startingHand = hand.getNewHand();
-    expect(startingHand.length).toBe(handSize);
+    expect(hand.currentCards.length).toBe(handSize);
   });
 
   it('should draw a starting hand from a deck', () => {
@@ -21,8 +20,23 @@ describe('Hand', () => {
     const firstCards = deck.cards.slice(0, handSize);
 
     const hand = new Hand(handSize, deck.cards);
-    const startingHand = hand.getNewHand(handSize, deck.cards);
-    expect(startingHand).toEqual(firstCards);
+    expect(hand.currentCards).toEqual(firstCards);
     expect(deck.cards.length).toBe(52 - handSize);
+  });
+
+  it('should draw 1 card if hand length >= starting hand size', () => {
+    const handSize = 5;
+    const deck = new Deck();
+    const firstCards = deck.cards.slice(0, handSize);
+    const firstCardsPlusDraw = deck.cards.slice(0, handSize + 1);
+
+    const hand = new Hand(handSize, deck.cards);
+    expect(hand.currentCards.length).toBe(5);
+    expect(hand.currentCards).toEqual(firstCards);
+
+    hand.draw();
+    expect(hand.currentCards.length).toBe(6);
+    expect(hand.currentCards).toEqual(firstCardsPlusDraw);
+    expect(deck.cards.length).toBe(52 - handSize - 1);
   });
 });

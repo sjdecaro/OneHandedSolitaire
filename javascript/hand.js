@@ -1,13 +1,17 @@
 module.exports = class Hand {
-  constructor(handSize, deck) {
-    this.handSize = handSize;
+  constructor(size, deck) {
+    this.size = size;
     this.deck = deck;
-    this.hand = [];
+    this.currentCards = this.drawNewHand();
   }
 
-  getNewHand() {
-    this.hand = this.deck.splice(0, this.handSize);
+  drawNewHand() {
+    this.currentCards = this.deck.splice(0, this.size);
 
-    return this.hand;
+    return this.currentCards;
+  }
+
+  draw() {
+    this.currentCards.push(this.deck.splice(0, 1)[0]);
   }
 }
