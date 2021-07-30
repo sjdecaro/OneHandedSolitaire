@@ -12,6 +12,12 @@ module.exports = class Hand {
   }
 
   draw() {
-    this.currentCards.push(this.deck.splice(0, 1)[0]);
+    if(this.currentCards.length < this.size) {
+      while(this.currentCards.length < this.size) {
+        this.currentCards.push(this.deck.splice(0, 1)[0]);
+      }
+    } else {
+      this.currentCards.push(this.deck.splice(0, 1)[0]);
+    }
   }
 }

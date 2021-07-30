@@ -39,4 +39,21 @@ describe('Hand', () => {
     expect(hand.currentCards).toEqual(firstCardsPlusDraw);
     expect(deck.cards.length).toBe(52 - handSize - 1);
   });
+
+  it('should draw up to the hand size if hand length < starting hand size', () => {
+    const handSize = 5;
+    const deck = new Deck();
+    const drawnHand = deck.cards.slice(0, 3);
+    drawnHand.push(deck.cards[5]);
+    drawnHand.push(deck.cards[6]);
+
+    const hand = new Hand(handSize, deck.cards);
+    hand.currentCards.pop();
+    hand.currentCards.pop();
+
+    hand.draw();
+    expect(hand.currentCards.length).toBe(5);
+    expect(hand.currentCards).toEqual(drawnHand);
+    expect(deck.cards.length).toBe(52 - handSize - 2);
+  });
 });
